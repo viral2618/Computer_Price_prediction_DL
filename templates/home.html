@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer price Prediction</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+    <h2>Computer Price Prediction</h2>
+    <a href="{{url_for('logout')}}" class="logout-btn">Logout</a>
+<form method="POST" action="{{url_for('home')}}">
+  <input type="text" name="device_type" placeholder="Device Type" required><br>
+  <input type="text" name="brand" placeholder="Brand" required><br>
+  <input type="text" name="model" placeholder="Model" required><br>
+  <input type="number" name="release_year" placeholder="Release Year" required><br>
+  <input type="text" name="os" placeholder="Operating System" required><br>
+  <input type="text" name="cpu_brand" placeholder="CPU Brand" required><br>
+  <input type="text" name="cpu_model" placeholder="CPU Model" required><br>
+  <input type="text" name="cpu_tier" placeholder="CPU Tier" required><br>
+  <input type="number" step="any" name="cpu_cores" placeholder="CPU Cores" required><br>
+  <input type="number" step="any" name="cpu_threads" placeholder="CPU Threads" required><br>
+  <input type="number" step="any" name="cpu_base_ghz" placeholder="CPU Base GHz" required><br>
+  <input type="number" step="any" name="cpu_boost_ghz" placeholder="CPU Boost GHz" required><br>
+  <input type="text" name="gpu_brand" placeholder="GPU Brand" required><br>
+  <input type="text" name="gpu_model" placeholder="GPU Model" required><br>
+  <input type="text" name="gpu_tier" placeholder="GPU Tier" required><br>
+  <input type="number" step="any" name="vram_gb" placeholder="VRAM (GB)" required><br>
+  <input type="number" step="any" name="ram_gb" placeholder="RAM (GB)" required><br>
+  <input type="number" step="any" name="storage_gb" placeholder="Storage (GB)" required><br>
+  <input type="number" step="any" name="storage_drive_count" placeholder="Drive Count" required><br>
+  <input type="text" name="display_type" placeholder="Display Type" required><br>
+  <input type="number" step="any" name="display_size_in" placeholder="Display Size (in)" required><br>
+  <input type="text" name="resolution" placeholder="Resolution" required><br>
+  <input type="number" step="any" name="refresh_hz" placeholder="Refresh Rate (Hz)" required><br>
+  <input type="number" step="any" name="battery_wh" placeholder="Battery (Wh)" required><br>
+  <input type="number" step="any" name="charger_watts" placeholder="Charger Watts" required><br>
+
+  <input type="submit" value="Predict">
+</form>
+{% if prediction %}
+  <div class="prediction-box">
+    🔮 <strong>Predicted Price:</strong> ₹{{ prediction | round(2) }}
+  </div>
+{% endif %}
+</body>
+</html>
